@@ -404,16 +404,16 @@
 
 								if ((thisdivision.ayes).includes(id)) {
 									item['vote'] = 'aye';
-									if (X_aye > 10) {
-										Y_aye++;
+									if (X_aye >= 10) {
 										X_aye = 0;
+										Y_aye++;
 									}
 									item['x'] = X_aye;
 									item['y'] = Y_aye;
 									X_aye++;
 								} else if ((thisdivision.noes).includes(id)) {
 									item['vote'] = 'noe';
-									if (X_noe > 10) {
+									if (X_noe >= 10) {
 										Y_noe++;
 										X_noe = 0;
 									}
@@ -422,7 +422,7 @@
 									X_noe++;
 								} else {
 									item['vote'] = 'abs';
-									if (X_abs > 10) {
+									if (X_abs >= 10) {
 										Y_abs++;
 										X_abs = 0;
 									}
@@ -435,14 +435,6 @@
 
 
 						}
-
-						var X_aye = 0;
-						var Y_aye = 0;
-						var X_noe = 0;
-						var Y_noe = 0;
-						var X_abs = 0;
-						var Y_abs = 0;
-
 						for (var i = 0, ilen = opposition.length; i < ilen; i++) {
 							partyname = opposition[i];
 							partycolour = opposition_colours[i];
@@ -457,21 +449,23 @@
 								item['name'] = name;
 								item['party'] = partyname;
 								item['colour'] = partycolour;
+								item['x'] = -1;
+								item['y'] = -1;
 
 
 
 								if ((thisdivision.ayes).includes(id)) {
 									item['vote'] = 'aye';
-									if (X_aye > 10) {
-										Y_aye++;
+									if (X_aye >= 10) {
 										X_aye = 0;
+										Y_aye++;
 									}
 									item['x'] = X_aye;
 									item['y'] = Y_aye;
 									X_aye++;
 								} else if ((thisdivision.noes).includes(id)) {
 									item['vote'] = 'noe';
-									if (X_noe > 10) {
+									if (X_noe >= 10) {
 										Y_noe++;
 										X_noe = 0;
 									}
@@ -480,7 +474,7 @@
 									X_noe++;
 								} else {
 									item['vote'] = 'abs';
-									if (X_abs > 10) {
+									if (X_abs >= 10) {
 										Y_abs++;
 										X_abs = 0;
 									}
@@ -514,6 +508,9 @@
 						})
 						.attr("y", function(d) {
 							return 30+d['y']*10;
+						})
+						.attr("class", function(d) {
+							return d['name']
 						});
 
 
