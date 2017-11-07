@@ -40,8 +40,8 @@
 
 					<div class="row">
 						<h1>House of Commons: Members and Divisions</h1>
-						<h5>Project by <a href="http://twitter.com/puntofisso">@puntofisso</a> | Data by <a href="http://data.parliament">data.parliament</a></h5>
-						<p class="description">The UK General Election 2017 resulted in a hung parliament. The Conservatives led by Theresa May, who had been Prime Minister since July 2016, had to strike a deal with the Democratic Unionist Party to reach a majority. The Government relies on the combined 327 votes of the Conservative and Democratic Unionists, which is slightly above the required majority of 323.<br/> This project is an interactive, visual exploration of each vote (called "division" in the UK Parliament), and its majority.<br/><b>Note:</b> this visualization should be considered a proof-of-concept beta. There are some discrepancies in the data; for example, the divisions available through the API seem to be a subset of the full dataset.</p>
+						<h5>Follow me at <a href="http://twitter.com/puntofisso">@puntofisso</a> | Data by <a href="http://www.data.parliament.uk">data.parliament</a> | <a href=""><span class="glyphicon glyphicon-info-sign"></span></a></h5>
+						<!--p class="description">The UK General Election 2017 resulted in a hung parliament. The Conservatives led by Theresa May, who had been Prime Minister since July 2016, had to strike a deal with the Democratic Unionist Party to reach a majority. The Government relies on the combined 327 votes of the Conservative and Democratic Unionists, which is slightly above the required majority of 323.<br/> This project is an interactive, visual exploration of each vote (called "division" in the UK Parliament), and its majority.<br/><br/><b>Note:</b> this visualization should be considered a proof-of-concept beta. There are some discrepancies in the data; for example, the divisions available through the API seem to be a subset of the full dataset.<br/><br/>For more data driven news, <a href="http://puntofisso.net/newsletter">subscribe to my weekly newsletter</a>.</p-->
 					</div>
 
 					<div class="row">
@@ -627,8 +627,7 @@
 		</div>
 
 
-		<footer class="footer">
-		</footer>
+		<footer class="footer"></footer>
 
 </div>
 </div>

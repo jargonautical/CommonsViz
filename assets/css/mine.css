@@ -21,11 +21,11 @@ div.tooltip {
     position: absolute !important ;
     text-align: center !important ;
     width: 120px !important ;
-    height: 120px !important ;
+    height: 100px !important ;
     padding: 2px !important ;
     font-family: 'Merriweather', Arial, sans-serif !important;
     font-weight: bold !important;
-    background: white !important ;
+    background: #eec111 !important ;
     border: 0px !important ;
     border-radius: 8px !important ;
     pointer-events: none !important ;
@@ -134,3 +134,12 @@ h5 {
   font-size: 16px;
   font-weight: bold !important;
 }
+
+/* @media only screen and (max-width: 500px) {
+    #vis {
+        position: absolute;
+        top: 50px;
+        left: 20px;
+    }
+}
+*/
