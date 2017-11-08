@@ -39,9 +39,9 @@
 				<div class="container-fluid">
 
 					<div class="row">
-						<h1>House of Commons: Members and Divisions</h1>
-						<h5>Follow me at <a href="http://twitter.com/puntofisso">@puntofisso</a> | Data by <a href="http://www.data.parliament.uk">data.parliament</a> | <a href=""><span class="glyphicon glyphicon-info-sign"></span></a></h5>
-						<!--p class="description">The UK General Election 2017 resulted in a hung parliament. The Conservatives led by Theresa May, who had been Prime Minister since July 2016, had to strike a deal with the Democratic Unionist Party to reach a majority. The Government relies on the combined 327 votes of the Conservative and Democratic Unionists, which is slightly above the required majority of 323.<br/> This project is an interactive, visual exploration of each vote (called "division" in the UK Parliament), and its majority.<br/><br/><b>Note:</b> this visualization should be considered a proof-of-concept beta. There are some discrepancies in the data; for example, the divisions available through the API seem to be a subset of the full dataset.<br/><br/>For more data driven news, <a href="http://puntofisso.net/newsletter">subscribe to my weekly newsletter</a>.</p-->
+						<h1>House of Commons: How Members of Parliament vote</h1>
+						<h5>Follow me at <a href="http://twitter.com/puntofisso">@puntofisso</a> _ Data by <a href="http://www.data.parliament.uk">data.parliament</a> _ <a href="info.php"><span class="glyphicon glyphicon-info-sign"></span></a></h5>
+
 					</div>
 
 					<div class="row">
@@ -642,17 +642,14 @@
 
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109316372-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<!--script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-99388198-1', 'auto');
-ga('send', 'pageview');
-
-</script-->
-
+  gtag('config', 'UA-109316372-1');
+</script>
 
 </html>

@@ -38,7 +38,7 @@ h1 {
 font-weight: bold !important;}
 
 
-h5 {
+h5,h3 {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Merriweather', Arial, sans-serif !important;
@@ -46,11 +46,11 @@ h5 {
 }
 
 .description {
-  width: 50%;
+  text-align: justify;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: 'Merriweather' !important;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .controls {
