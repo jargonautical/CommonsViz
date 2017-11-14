@@ -46,7 +46,7 @@
 
 					<div class="row">
 						<div class="controls">
-							<select class="styled-select yellow rounded" name="divisions" id="divisions"></select>
+							<select class="styled-select yellow rounded" name="divisions" id="divisions"><option disabled selected value> -- select an option -- </option></select>
 							<button class="myButton rounded" id="reset" name="reset" value="Reset Chamber">Reset Chamber</button>
 						</div>
 					</div>
@@ -65,11 +65,35 @@
 							<div id="prevote" name="prevote"></div>
 							<div id="ayes_count" name="ayes_count"></div>
 							<div id="noes_count" name="noes_count"></div>
+
+							<!--script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4410734268512605" data-ad-slot="4652812342">
+              </ins>
+              <script>
+              	(adsbygoogle = window.adsbygoogle || []).push({});
+              </script-->
+
+
 						</div>
 
 					</div>
 
 					<script>
+
+					function formatDate(date) {
+					  var monthNames = [
+					    "January", "February", "March",
+					    "April", "May", "June", "July",
+					    "August", "September", "October",
+					    "November", "December"
+					  ];
+
+					  var day = date.substr(8, 2);
+					  var monthIndex = date.substr(5, 2);
+					  var year = date.substr(0,4);
+
+					  return day + ' ' + monthNames[monthIndex*1] + ' ' + year;
+					}
 
 
 					var myconstituencies = <?php echo file_get_contents("mps.json");?>;
@@ -78,7 +102,8 @@
 					var select = $('#divisions');
 
 					$.each(divisions, function(i, val){
-						select.append($('<option>' + val.title +  ' [' +  val.hansard + '] </option>' ));
+						mydate = formatDate(val.date);
+						select.append($('<option>' + val.title +  ' [' +  val.hansard + '] ' + mydate + '  </option>' ));
 					});
 
 					// Settings
@@ -337,7 +362,7 @@
 					d3.select("#divisions")
 					.on("change", function() {
 
-						var thisdivision = divisions[$("#divisions")[0].selectedIndex];
+						var thisdivision = divisions[$("#divisions")[0].selectedIndex-1];
 						var dataset = [];
 
 						var X_aye = 0;
