@@ -28,14 +28,13 @@ foreach($json->result->items as $division) {
       $thisdiv['title'] = $division->title;
       $thisdiv['url'] = $division->_about;
       $thisdiv['hansard'] = $division->uin;
-      $thisdiv['preamble'] = "";
-      $thisdiv['PreVoteContent'] = "";
 
       // Initialise arrays
       $thisdiv['ayes'] = array();
       $thisdiv['noes'] = array();
       $thisdiv['ayestellers'] = array();
-      $thisdiv['noestellers'] = array();
+      $thisdiv['notellers'] = array();
+
 
       // Build URL as it's not in the right format
       $urlarr = explode("/",$division->_about);
@@ -45,38 +44,78 @@ foreach($json->result->items as $division) {
 
 
       // Get full data about this division
+
+      // TODO
+      // This should be the way but...
+      // this json endpoint has no info about Tellers
+      // so I'm using the xml instead on the main api
+      // TODO report to UK Parliament
+      // $ch = curl_init();
+      // $divid = $division->Id;
+      // curl_setopt($ch, CURLOPT_URL,"http://lda.data.parliament.uk/commonsdivisions/id/$myurl.json");
+      // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      // $text = curl_exec ($ch);
+      // curl_close ($ch);
+      // $json_div = json_decode($text);
+      //
+      //
+      // // Votes
+      // foreach ($json_div->result->primaryTopic->vote as $ayemember) {
+      //     $idarr = $ayemember->member[0]->_about;
+      //     $mid = explode("/",$idarr)[4];
+      //     $type = $ayemember->type;
+      //
+      //     if ($type == "http://data.parliament.uk/schema/parl#AyeVote") {
+      //       // AYE
+      //       $thisdiv['ayes'][] = $mid;
+      //     } elseif ($type == "http://data.parliament.uk/schema/parl#NoVote") {
+      //       // NOE
+      //       $thisdiv['noes'][] = $mid;
+      //     } else {
+      //       echo "ERROR IN VOTE TYPE ".$type;
+      //     }
+      // }
+
+
+
       $ch = curl_init();
       $divid = $division->Id;
-      curl_setopt($ch, CURLOPT_URL,"http://lda.data.parliament.uk/commonsdivisions/id/$myurl.json");
+      curl_setopt($ch, CURLOPT_URL,"http://api.data.parliament.uk/resources/files/$myurl.xml");
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      $text = curl_exec ($ch);
+      $xml = curl_exec ($ch);
       curl_close ($ch);
 
-      $json_div = json_decode($text);
+      
 
+      // I'm lazy like that...
+      $json = json_encode(simplexml_load_string($xml, "SimpleXMLElement", LIBXML_NOCDATA));
+      $json_div = json_decode($json);
 
+      $thisdiv['ayecount'] = $json_div->AyeCount;
+      $thisdiv['nocount'] = $json_div->NoCount;
 
-      // Votes
-      foreach ($json_div->result->primaryTopic->vote as $ayemember) {
-          $idarr = $ayemember->member[0]->_about;
-          $mid = explode("/",$idarr)[4];
-          $type = $ayemember->type;
-
-          if ($type == "http://data.parliament.uk/schema/parl#AyeVote") {
-            // AYE
-            $thisdiv['ayes'][] = $mid;
-          } elseif ($type == "http://data.parliament.uk/schema/parl#NoVote") {
-            $thisdiv['noes'][] = $mid;
-          } else {
-            echo "ERROR IN VOTE TYPE ".$type;
-          }
+      // Voters & Tellers
+      if( isset($json_div->AyeTellers)) {
+        foreach ($json_div->AyeTellers->Vote as $member) {
+          $thisdiv['ayestellers'][] = $member->Member->MemberId;
+        }
+      }
+      if( isset($json_div->NoTellers)) {
+        foreach ($json_div->NoTellers->Vote as $member) {
+          $thisdiv['notellers'][] = $member->Member->MemberId;
+        }
+      }
+      if( isset($json_div->Ayes->Vote)) {
+        foreach ($json_div->Ayes->Vote as $member) {
+          $thisdiv['ayes'][] = $member->Member->MemberId;
+        }
+      }
+      if( isset($json_div->Noes->Vote)) {
+        foreach ($json_div->Noes->Vote as $member) {
+          $thisdiv['noes'][] = $member->Member->MemberId;
+        }
       }
 
-
-      // TODO need to add info about party to display colour
-      // TODO replace use of csv file
-      // AyeTellers
-      // NoeTellers
 
 
       $out[] = $thisdiv;
