@@ -129,6 +129,7 @@
 
 					$(document).ready( function () {
   					paintCommons();
+						showLabels();
 						addkey();
 					});
 
@@ -192,7 +193,9 @@
 						.style("fill", "black")
 						.text("Tellers No");
 
-						paintDivision(thisdivision);
+						paintDivision(thisdivision, 1000, function(d, i) {
+					    return i * 7;  // Dynamic delay (i.e. each item delays a little longer)
+					  });
 
 
 
@@ -215,7 +218,7 @@
 
 
 						resetCommons();
-
+						showLabels();
 					});
 
 

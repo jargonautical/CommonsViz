@@ -6,7 +6,7 @@ window.government_colours = myconstituencies['government_colours'];
 window.opposition = myconstituencies['opposition'];
 window.opposition_colours = myconstituencies['opposition_colours'];
 
-function paintDivision(thisdivision) {
+function paintDivision(thisdivision, duration, delayfunction) {  
   var dataset = [];
 
   var X_aye = 0;
@@ -162,11 +162,8 @@ function paintDivision(thisdivision) {
   houseDotsGroup.selectAll("rect")
   .data(dataset)
   .transition()
-  .duration(1000)
-
-  .delay(function(d, i) {
-    return i * 7;  // Dynamic delay (i.e. each item delays a little longer)
-  })
+  .duration(duration)
+  .delay(delayfunction)
   // .ease("variable")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
   .attr("x", function(d) {
     if (d['vote'] == 'aye') {
@@ -275,7 +272,7 @@ function resetCommons() {
       return 50 + (d['y'] *10 );
     }
   });
-  showLabels();
+  // showLabels();
 }
 
 
@@ -376,7 +373,7 @@ function paintCommons() {
     .style("opacity", 0);
   });
 
-  showLabels();
+  // showLabels();
 
 }
 
@@ -491,3 +488,47 @@ function addkey() {
       });
     }
   }
+
+function showDivisionLabels() {
+  textGroup.selectAll("*").remove();
+
+  textGroup.append("text")
+  .attr("x", 50)
+  .attr("y", 20)
+  .attr("class", "legend")
+  .attr( "fill-opacity", 1 ).transition().delay( 300 )
+  .style("fill", "black")
+  .text("Aye");
+
+  textGroup.append("text")
+  .attr("x", 243)
+  .attr("y", 20)
+  .attr("class", "legend")
+  .attr( "fill-opacity", 1 ).transition().delay( 550 )
+  .style("fill", "black")
+  .text("Noe");
+
+  textGroup.append("text")
+  .attr("x", 425)
+  .attr("y", 20)
+  .attr("class", "legend")
+  .attr( "fill-opacity", 1 ).transition().delay( 1000 )
+  .style("fill", "black")
+  .text("Didn't vote");
+
+  textGroup.append("text")
+  .attr("x", 550)
+  .attr("y", 20)
+  .attr("class", "legend")
+  .attr( "fill-opacity", 1 ).transition().delay( 550 )
+  .style("fill", "black")
+  .text("Tellers Aye");
+
+  textGroup.append("text")
+  .attr("x", 550)
+  .attr("y", 220)
+  .attr("class", "legend")
+  .attr( "fill-opacity", 1 ).transition().delay( 550 )
+  .style("fill", "black")
+  .text("Tellers No");
+}
