@@ -60,9 +60,9 @@
 								<p class="description">The list of <b>MPs and their photos</b> is tricky. I had to cross-reference two datasets, including data from TheyWorkForYou, as
 								I couldn't find a full, exhaustive list of current MPs together with their so-called MNID, on the Parliament website. </p>
 								<p class="description">As far as divisions are concerned, there are two endpoints
-									I've used: the <b>list of divisions</b> at </p><pre>http://hansard.services.digiminster.com/Divisions/list.json</pre> <p class="description">and
-									the <b>detail of each division</b>, for example </p><pre>http://hansard.services.digiminster.com/Divisions/Division/102.json</pre>
-								<p class="description">One <b>issue</b> that I've found is that the division list API doesn't release the full list of divisions as listed on <a href="https://hansard.parliament.uk/search/Divisions?startDate=2017-06-08&searchTerm=finance%20bill&house=Commons&includeCommitteeDivisions=True">Hansard</a>. I'm not sure why this is the case, but I'm investigating.</p>
+									I've used: the <b>list of divisions</b> at </p><pre>http://lda.data.parliament.uk/commonsdivisions.json?_pageSize=25000&minEx-date=2017-06-08</pre> <p class="description">and
+									the <b>detail of each division</b>, for example </p><pre>http://api.data.parliament.uk/resources/files/102.xml</pre>
+								<p class="description">There are some discrepancies in the data, or simply oddness in the way the endpoints return data (e.g. there is no JSON-equivalent to the XML endpoint above). This is because the PDS API is still work in progress.</p>
 								<p class="description">All the issues, whether they are incorrect data, missing API calls, or simple <i>desiderata</i>, have been reported to the (excellent) teams working at Parliament on data and business systems, and we're working together to improve the quality of the data.</p>
 								<p class="description"></p>
 								<p class="description"></p>
