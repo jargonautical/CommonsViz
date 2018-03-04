@@ -6,7 +6,7 @@ window.government_colours = myconstituencies['government_colours'];
 window.opposition = myconstituencies['opposition'];
 window.opposition_colours = myconstituencies['opposition_colours'];
 
-function paintDivision(thisdivision, duration, delayfunction) {  
+function paintDivision(thisdivision, duration, delayfunction) {
   var dataset = [];
 
   var X_aye = 0;
@@ -363,7 +363,7 @@ function paintCommons() {
     div.transition()
     .duration(200)
     .style("opacity", .9);
-    div.html("<img src='assets/img/mps/" + d.id + ".jpg'/><p>" + d.name +"</p>")
+    div.html("<img src='/assets/img/mps/" + d.id + ".jpg'/><p>" + d.name +"</p>")
     .style("left", (d3.event.pageX) + "px")
     .style("top", (d3.event.pageY - 28) + "px");
   })
