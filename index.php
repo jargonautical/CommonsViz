@@ -89,7 +89,9 @@
 					  var monthIndex = date.substr(5, 2);
 					  var year = date.substr(0,4);
 
-					  return day + ' ' + monthNames[monthIndex*1] + ' ' + year;
+						var monthname = monthNames[monthIndex*1 -1];
+
+					  return day + ' ' + monthname + ' ' + year;
 					}
 
 					// Read files
@@ -100,7 +102,7 @@
 					var select = $('#divisions');
 					$.each(divisions, function(i, val){
 						mydate = formatDate(val.date);
-						select.append($('<option>' + val.title +  ' [' +  val.hansard + '] ' + mydate + '  </option>' ));
+						select.append($('<option>' + mydate +": " + val.title +  ' [' +  val.hansard + ']  </option>' ));
 					});
 
 					// SVG initialisation
