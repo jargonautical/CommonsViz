@@ -1,6 +1,7 @@
 <?php
 ?>
 <!DOCTYPE html>
+<html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <head>
@@ -8,7 +9,7 @@
 <script src="../assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <link href="../assets/css/mine.css" rel="stylesheet"/>
 </head>
-
+<body>
 <div id='container' class='container-1'>
 
   <div id='graph'></div>
@@ -90,7 +91,7 @@ function render(){
 
 }
 render()
-d3.select(window).on('resize', render)
+//d3.select(window).on('resize', render)
 
 </script>
 
@@ -176,3 +177,5 @@ $(document).ready( function () {
 
 </script>
 <script src="../assets/js/houseofcommons.js" type="text/javascript"></script>
+</body>
+</html>

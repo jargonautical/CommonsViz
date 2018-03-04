@@ -20,14 +20,14 @@ h1{
 }
 
 #sections{
-  width: 340px;
+  width: 240px;
 }
 
 #sections > div{
   background: white;
   height: 400px;
   opacity: .2;
-  margin-bottom: 200px;
+  margin-bottom: 500px;
 }
 #sections > div:last-child{
   margin-bottom: 30px;

@@ -180,7 +180,7 @@ function paintDivision(thisdivision, duration, delayfunction) {
   })
   .attr("y", function(d) {
     if (d['vote'] == 'noteller') {
-      return 30+220 + d['y']*10;
+      return 10+220 + d['y']*10;
     } else {
       return 30+d['y']*10;
     }
