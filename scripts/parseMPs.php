@@ -43,9 +43,9 @@ $out['count'] = array_count_values($parties);
 $out['parties'] = array();
 
 $out['government'] = ['Conservative', 'Democratic Unionist Party'];
-$out['government_colours'] = ['#0000ff', '#aa2222'];
+$out['government_colours'] = ['#0087dc', '#aa2222'];
 $out['opposition'] = ['Labour', 'Labour (Co-op)', 'Scottish National Party', 'Liberal Democrat', 'Plaid Cymru','Green Party','Independent', 'Sinn Féin'];
-$out['opposition_colours'] = ['#ff0000', '#ff0000', '#FFF95D', '#FDBB30', '#3F8428', '#00ff00', '#000000', '#008066'];
+$out['opposition_colours'] = ['#d50000', '#d50000', '#FFF95D', '#FDBB30', '#3F8428', '#00ff00', '#000000', '#008066'];
 
 foreach ($out['count'] as $name =>$count) {
   $out['parties'][$name] = ${$name};
