@@ -112,7 +112,7 @@
 					.attr("id",'svgCont')
 					.style("border", "0px solid black");
 
-					// Group container for the Commons Layout
+					// Group container for the first Commons Layout
 					var houseDotsGroup = d3.select('#svgCont').append("g")
 					.attr("id", "houseSvgGroup");
 
@@ -217,7 +217,9 @@
 						textGroup.selectAll("*").remove();
 
 
-						resetCommons();
+						resetCommons(200, function(d, i) {
+					    return i * 3;  // Dynamic delay (i.e. each item delays a little longer)
+					  });
 						showLabels();
 					});
 

@@ -190,14 +190,12 @@ function paintDivision(thisdivision, duration, delayfunction) {
   });
 }
 
-function resetCommons() {
+function resetCommons(duration, delayfunction) {
   var dataset = [];
 
   // Government Round
   var X = 0;
   var Y = 0;
-
-
 
   for (var i = 0, ilen = government.length; i < ilen; i++) {
     partyname = government[i];
@@ -257,10 +255,8 @@ function resetCommons() {
   houseDotsGroup.selectAll("rect")
   .data(dataset)  // Update with new data
   .transition()  // Transition from old to new
-  .duration(200)  // Length of animation
-  .delay(function(d, i) {
-    return i * 3;  // Dynamic delay (i.e. each item delays a little longer)
-  })
+  .duration(duration)  // Length of animation
+  .delay(delayfunction)
   //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
   .attr("x", function (d) {
     return 30 + (d['x'] * 10);

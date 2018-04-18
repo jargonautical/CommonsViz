@@ -1,31 +1,31 @@
 <style>
 
 body{
-  max-width: 900px;
-  margin: 0px auto;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  max-width: 1200px;
+  margin-top: 30px auto;
+  margin-left: 30px auto;
+  font-family: 'Merriweather', Arial, sans-serif !important;
 }
 
 h1{
-  margin: 50px;
+  margin: 0px;
 }
 
-h1{
+h1, h5{
   text-align: center;
 }
-
 
 #container{
   position: relative;
 }
 
 #sections{
-  width: 240px;
+  width: 340px;
 }
 
 #sections > div{
   background: white;
-  height: 400px;
+  height: 300px;
   opacity: .2;
   margin-bottom: 500px;
 }
@@ -37,8 +37,8 @@ h1{
 }
 
 #graph{
-  margin-left: 40px;
-  width: 500px;
+  margin-left: 0px;
+  width: 800px;
   position: sticky;
   top: 0px;
   float: right;
