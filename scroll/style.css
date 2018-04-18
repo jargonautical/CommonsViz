@@ -36,7 +36,7 @@ h1, h5{
   opacity: 1;
 }
 
-#graph{
+#graph1{
   margin-left: 0px;
   width: 800px;
   position: sticky;
@@ -46,7 +46,7 @@ h1, h5{
 
 
 @media (max-width: 925px)  {
-  #graph{
+  #graph1{
     width: 100%;
     margin-left: 0px;
     float: none;
